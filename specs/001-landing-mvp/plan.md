@@ -39,19 +39,21 @@
 ├── public/
 │   └── images/
 │       ├── CREDITS.md                  # autor + URL Unsplash de cada foto real
+│       ├── hero-courier.svg            # RF4: ilustración propia (repartidor con cajas)
 │       ├── placeholders/
 │       │   ├── hero.svg                # RF4
 │       │   ├── smart-delivery.svg      # RF6
 │       │   ├── coverage.svg            # RF7
 │       │   └── branch.svg              # RF8 (compartido por las 6 sucursales)
 │       └── map/
-│           ├── marker.svg              # pin brand-green
-│           └── marker-active.svg       # pin brand-lime (sucursal seleccionada)
+│           ├── marker.svg              # pin brand-red
+│           └── marker-active.svg       # pin brand-yellow con borde rojo (sucursal seleccionada)
 └── src/
     ├── app/
     │   ├── layout.tsx                  # <html lang="es-SV">, fuentes, metadata/OG
     │   ├── page.tsx                    # compone RF1–RF11 en orden
-    │   ├── globals.css                 # @import tailwindcss + @theme (paleta/fuentes)
+    │   ├── globals.css                 # @import tailwindcss + @theme (paleta/fuentes) + @utility page-container
+    │   ├── styleguide/page.tsx         # ruta interna (noindex) para revisar los tokens
     │   └── icon.svg                    # favicon con el "21"
     ├── components/
     │   ├── layout/
@@ -74,11 +76,17 @@
     │   │   └── BranchMap.tsx           # RF8  (client, cargado sin SSR)
     │   ├── jobs/
     │   │   └── JobApplicationModal.tsx # RF9  (client)
-    │   ├── WhatsAppButton.tsx          # RF11 (server, enlace puro)
+    │   ├── WhatsAppButton.tsx          # RF11 (client: pulso con framer-motion)
+    │   ├── motion/
+    │   │   ├── MotionProvider.tsx      # RF12: MotionConfig reducedMotion="user"
+    │   │   └── Reveal.tsx              # RF12.4: fade-up whileInView once
+    │   ├── illustrations/
+    │   │   └── PhoneMockup.tsx         # RF6: teléfono en SVG con ruta de entrega
     │   ├── ui/
     │   │   ├── Modal.tsx               # wrapper accesible de <dialog>
     │   │   ├── ComingSoon.tsx          # tooltip "Próximamente"
-    │   │   └── Button.tsx              # variantes: primary | dark | outline
+    │   │   ├── SiteLinkView.tsx        # pinta un SiteLink según su action (anchor/soon/jobs/external)
+    │   │   └── buttonStyles.ts         # buttonClass(variant): primary | dark | outline
     │   └── icons/
     │       ├── FacebookIcon.tsx
     │       ├── InstagramIcon.tsx
@@ -117,14 +125,33 @@
 
 > `ComingSoon` es client. Los Server Components pueden renderizarlo sin volverse client.
 
-### 1.4 Contraste (constitución, principio 7)
+### 1.4 Contraste (constitución, principios 7 y 9)
 
-| Combinación | Ratio aprox. | Uso |
+| Combinación | Ratio | Uso |
 |---|---|---|
-| Blanco sobre `brand-dark` | ≈ 10:1 ✅ | Navbar, footer, split izquierdo |
-| `brand-dark` sobre `brand-green` | ≈ 5.3:1 ✅ | **Texto de todos los botones verdes** y del split derecho |
-| `brand-lime` sobre `brand-dark` | ≈ 7:1 ✅ | "TECNOLOGÍA LOGÍSTICA" |
-| Blanco sobre `brand-green` | ≈ 2:1 ❌ | **Prohibido** para texto |
+| Blanco sobre `brand-red` | 5.2:1 ✅ | Hero, botones rojos |
+| Blanco sobre `brand-red-dark` | 8.9:1 ✅ | Topbar, footer |
+| `ink` sobre `brand-yellow` | 10.8:1 ✅ | Botones amarillos, franja de cobertura |
+| `brand-red` sobre blanco / `surface-warm` | 5.2 / 4.9:1 ✅ | Titulares y enlaces en rojo |
+| `brand-yellow` sobre `brand-red-dark` | 5.5:1 ✅ | Acentos del footer |
+| `brand-yellow` sobre `brand-red` | 3.2:1 ⚠️ | Solo logo, línea decorativa y texto grande |
+| Blanco sobre `brand-yellow` | 1.6:1 ❌ | **Prohibido** |
+
+### 1.5 Identidad visual por sección (2026-10-06)
+
+| Sección | Composición |
+|---|---|
+| Topbar | `brand-red-dark`, 32 px de alto |
+| Navbar | Blanca, sombra + blur al hacer scroll. CTAs con jerarquía: Proveedores y Empleo = enlaces; Mi perfil = outline; Afiliarme = rojo sólido |
+| Logo | Hexágono rojo con "21" amarillo + "Express" en `ink` o blanco (`variant`) |
+| Hero | Rojo con patrón diagonal (`repeating-linear-gradient` en `brand-red-dark`). Ilustración SVG propia (`public/images/hero-courier.svg`) flotando |
+| Tracking | Tarjeta blanca flotante con `-mt` sobre el borde inferior del hero; lupa amarilla |
+| Servicios | 2 tarjetas blancas sobre `surface-warm`, hover con elevación y flecha que se desplaza |
+| Smart Delivery | Fondo blanco, mockup de teléfono en CSS/SVG sobre círculo amarillo; beneficios en badges rojos |
+| Cobertura | Franja amarilla, texto `ink`, pin rojo, ilustración a la derecha |
+| Sucursales | Tarjetas blancas sobre `surface-warm`, borde izquierdo rojo en la activa; pines rojos |
+| Footer | `brand-red-dark` con acentos amarillos |
+| WhatsApp | Verde oficial `#25D366` (token `whatsapp`) y pulso cada 5 s |
 
 ---
 
@@ -285,7 +312,7 @@ export interface SiteConfig {
 ]
 ```
 
-Colores del badge de estado: `delivered` → `bg-brand-green text-brand-dark`; `out_for_delivery` → `bg-brand-lime text-brand-dark`; `in_warehouse` → `bg-surface-muted text-brand-dark ring-1 ring-brand-dark/20`.
+Colores del badge de estado: `delivered` → `bg-ink text-white`; `out_for_delivery` → `bg-brand-yellow text-ink`; `in_warehouse` → `bg-surface-warm text-ink ring-1 ring-ink/20`.
 
 ### 2.3 `src/data/branches.json`
 
@@ -573,7 +600,7 @@ Leaflet usa `window` al importarse, así que **no puede** ejecutarse en el pre-r
 'use client';
 import dynamic from 'next/dynamic';
 
-const BranchMap = dynamic(() => import('./BranchMap'), {
+const BranchMap = dynamic(() => import('./BranchMap'), { // BranchMap usa MapRoot (§3.4)
   ssr: false,
   loading: () => (
     <div className="grid h-full place-items-center bg-surface-muted" role="status">
@@ -593,7 +620,7 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 
-// Iconos propios en /public: evita el bug clásico de los iconos por defecto
+// Pines propios en /public (rojo; activo amarillo con borde rojo): evita el bug clásico de los iconos por defecto
 // (las rutas de marker-icon.png que Leaflet resuelve desde el CSS no existen
 // tras el bundling). No se usa L.Icon.Default en ningún marcador.
 const icon = L.icon({ iconUrl: '/images/map/marker.svg', iconSize: [32, 42], iconAnchor: [16, 42], popupAnchor: [0, -38] });
@@ -608,7 +635,7 @@ interface Props {
 
 | Pieza | Detalle |
 |---|---|
-| Tiles | `https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png`, `attribution='&copy; OpenStreetMap contributors'` (RF8.9). **Sin API key.** |
+| Tiles | `https://tile.openstreetmap.org/{z}/{x}/{y}.png` (host único, recomendado por OSM; los subdominios a/b/c están en desuso), `attribution='&copy; OpenStreetMap contributors'` (RF8.9). **Sin API key.** |
 | Vista inicial | centro `[13.7, -88.9]`, zoom 8 (cubre todo el país), `scrollWheelZoom={false}` para no secuestrar el scroll de la página. |
 | Referencias | `useRef<Record<string, L.Marker>>({})`. Cada `<Marker ref>` se registra por `id`. |
 | Volar a la sucursal | Un hijo `<MapController selectedId>` usa `useMap()`. Cuando cambia `selectedId`: `map.flyTo([lat, lng], 15, { duration: 1.2 })` y, con `map.once('moveend')`, `markers[id].openPopup()`. |
@@ -617,6 +644,12 @@ interface Props {
 | Clic en marcador | Llama `onSelect(id)` para que la tarjeta correspondiente quede activa y visible (`scrollIntoView({ block: 'nearest' })`). |
 | Altura | El contenedor tiene altura explícita (`h-80 md:h-[560px]`). Sin esto Leaflet no pinta nada. |
 | StrictMode | react-leaflet 5 gestiona el doble montaje de React 19 sin el error "Map container is already initialized". |
+
+### 3.4 `MapRoot` en lugar de `<MapContainer>` (2026-10-06)
+
+**Problema:** `MapContainer` de react-leaflet 5 crea el mapa en un *ref callback* pero lo destruye en un `useEffect`. Cuando React desconecta y reconecta efectos sin desmontar el componente (StrictMode en desarrollo, Fast Refresh, `<Activity>`), el mapa queda destruido mientras el contexto lo sigue apuntando. Entonces `TileLayer` falla con `Cannot read properties of undefined (reading 'appendChild')` y después con `Map container is being reused by another instance`. Se reprodujo de forma determinista ocultando y mostrando el mapa con `<Activity>`.
+
+**Solución:** `src/components/sections/MapRoot.tsx` crea el mapa en un *ref callback* con función de limpieza (React 19) y lo destruye en esa misma limpieza, así que creación y destrucción siempre van en pares. Además entrega `LeafletContext`, por lo que `TileLayer`, `Marker`, `Popup` y `useMap` de react-leaflet funcionan sin cambios. Verificación: 3 ciclos de ocultar y mostrar con `<Activity>` sin errores y con el mapa completo.
 
 ### 3.3 Estado en `BranchLocator`
 
@@ -652,29 +685,22 @@ export default { plugins: { '@tailwindcss/postcss': {} } };
 @import "tailwindcss";
 
 @theme inline {
-  --color-brand-dark: #0D4732;
-  --color-brand-dark-2: #13503B;
-  --color-brand-green: #00D632;
-  --color-brand-green-hover: #00C82B;
-  --color-brand-lime: #A3E635;
+  --color-brand-red: #D7182A;
+  --color-brand-red-dark: #9E0F1C;
+  --color-brand-yellow: #FFC20E;
+  --color-brand-yellow-soft: #FFE58A;
   --color-surface: #FFFFFF;
-  --color-surface-muted: #F4F6F8;
+  --color-surface-warm: #FFF9EC;
+  --color-ink: #1A1A1A;
+  --color-ink-muted: #5B5B5B;
+  --color-whatsapp: #25D366; /* solo RF11 */
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 }
-
-@layer base {
-  html { scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-  [id] { scroll-margin-top: 6rem; }               /* RF2.11: altura de la navbar */
-  h1, h2, h3 { font-family: var(--font-heading); }
-  :focus-visible { outline: 3px solid var(--color-brand-lime); outline-offset: 2px; }
-  dialog::backdrop { background: rgb(13 71 50 / 0.6); }
-}
 ```
 
-Genera las utilidades `bg-brand-dark`, `text-brand-green`, `hover:bg-brand-green-hover`, `font-heading`, etc. `@theme inline` hace falta porque las fuentes referencian variables que define `next/font` en `<html>`.
+Base: scroll suave (con `data-scroll-behavior="smooth"` en `<html>`, que Next 16 exige), `scroll-margin-top`, foco visible amarillo con anillo rojo y backdrop de `<dialog>` en `ink/60`. Un bloque `@media (prefers-reduced-motion: reduce)` anula transiciones y animaciones CSS (RF12.9).
 
 ### 4.3 `src/app/layout.tsx`
 
@@ -691,7 +717,7 @@ export const metadata: Metadata = {
 };
 
 // <html lang="es-SV" className={`${inter.variable} ${montserrat.variable}`}>
-//   <body className="bg-surface font-sans text-brand-dark antialiased">
+//   <body className="bg-surface font-sans text-ink antialiased">
 ```
 
 > `next/font/google` descarga las fuentes **en tiempo de build** y las sirve desde el propio sitio: no hay peticiones a Google en runtime. Necesita conexión durante `npm run build`, algo que Vercel ya tiene.
@@ -739,7 +765,9 @@ Versiones consultadas en npm el 2026-10-06. Se fijan **sin `^`** para builds rep
 | `react-dom` | 19.3.0 | Igual que `react`. |
 | `leaflet` | 1.9.4 | Motor del mapa (RF8). OSM sin API key. |
 | `react-leaflet` | 5.0.0 | Bindings de React para Leaflet. Su peer dependency es React 19. |
+| `@react-leaflet/core` | 3.0.0 | Ya venía instalado como parte de `react-leaflet`; se declara porque `MapRoot` importa `LeafletContext` y `createLeafletContext` (ver §3.4). Añadido el 2026-10-06. |
 | `lucide-react` | 1.52.0 | Iconos de UI (lupa, menú, cierre, pin, reloj, teléfono, beneficios). Fijado por AGENTS.md. |
+| `framer-motion` | 14.0.0 | Animaciones de RF12. Su API declarativa (`whileInView`, `variants` con *stagger*, `whileHover`, `AnimatePresence` para el modal) evita escribir y mantener animaciones a mano con IntersectionObserver y keyframes. `MotionConfig reducedMotion="user"` aplica `prefers-reduced-motion` a todas las animaciones en un solo lugar. Peer deps: React 18/19. (Añadida el 2026-10-06 por el cambio de identidad visual.) |
 
 ### 5.2 Desarrollo
 
@@ -755,7 +783,7 @@ Versiones consultadas en npm el 2026-10-06. Se fijan **sin `^`** para builds rep
 | `eslint` | **9.39.5** | `npm run lint`. **Excepción:** ESLint 10 ya salió, pero algunos plugins que trae `eslint-config-next` (react, import, jsx-a11y) aún no lo declaran compatible. Se usa la última 9.x. |
 | `eslint-config-next` | 16.4.0 | Reglas oficiales de Next 16 (incluye jsx-a11y y react-hooks). |
 
-**Total: 6 de producción + 9 de desarrollo.** No se instala nada más (sin librería de modales, formularios, toasts ni utilidades de clases). Si una tarea necesita algo extra, primero se modifica esta sección.
+**Total: 8 de producción + 9 de desarrollo.** No se instala nada más (sin librería de modales, formularios, toasts ni utilidades de clases; la única añadida después es `framer-motion`). Si una tarea necesita algo extra, primero se modifica esta sección.
 
 ### 5.3 Scripts de `package.json`
 

@@ -1,39 +1,117 @@
 {
-  "brand": { "name": "21 Express", "slogan": "Tu envío en buenas manos, de punta a punta del país." },
+  "brand": {
+    "name": "21 Express",
+    "slogan": "Tu envío en buenas manos, de punta a punta del país."
+  },
   "contact": {
     "phone": "+503 7641-6944",
     "phoneHref": "tel:+50376416944",
-    "whatsapp": { "number": "50376416944", "message": "¡Hola, 21 Express! Quiero información sobre sus envíos." },
+    "whatsapp": {
+      "number": "50376416944",
+      "message": "¡Hola, 21 Express! Quiero información sobre sus envíos."
+    },
     "address": "Villas de Suiza, El Salvador",
     "schedule": "Lunes a viernes de 8:00 a 17:00 · Sábado de 8:00 a 12:00"
   },
   "social": [
-    { "id": "facebook", "label": "21 Express en Facebook", "url": "#", "comingSoon": true },
-    { "id": "instagram", "label": "21 Express en Instagram", "url": "#", "comingSoon": true }
+    {
+      "id": "facebook",
+      "label": "21 Express en Facebook",
+      "url": "#",
+      "comingSoon": true
+    },
+    {
+      "id": "instagram",
+      "label": "21 Express en Instagram",
+      "url": "#",
+      "comingSoon": true
+    }
   ],
   "countries": [
-    { "code": "SV", "name": "El Salvador", "status": "active" },
-    { "code": "GT", "name": "Guatemala", "status": "soon" },
-    { "code": "HN", "name": "Honduras", "status": "soon" }
+    {
+      "code": "SV",
+      "name": "El Salvador",
+      "status": "active"
+    },
+    {
+      "code": "GT",
+      "name": "Guatemala",
+      "status": "soon"
+    },
+    {
+      "code": "HN",
+      "name": "Honduras",
+      "status": "soon"
+    }
   ],
-  "coverageCountries": ["SV"],
+  "coverageCountries": [
+    "SV"
+  ],
   "comingSoonLabel": "Próximamente",
   "topbarLinks": [
-    { "label": "¿Por qué 21 Express?", "href": "#", "action": "soon" },
-    { "label": "Tecnología Smart Delivery", "href": "#smart-delivery", "action": "anchor" },
-    { "label": "Contacto", "href": "#contacto", "action": "anchor" }
+    {
+      "label": "¿Por qué 21 Express?",
+      "href": "#",
+      "action": "soon"
+    },
+    {
+      "label": "Tecnología Smart Delivery",
+      "href": "#smart-delivery",
+      "action": "anchor"
+    },
+    {
+      "label": "Contacto",
+      "href": "#contacto",
+      "action": "anchor"
+    }
   ],
   "navLinks": [
-    { "label": "Inicio", "href": "#inicio", "action": "anchor" },
-    { "label": "Paquetería local", "href": "#paqueteria-local", "action": "anchor" },
-    { "label": "Cobertura", "href": "#cobertura", "action": "anchor" },
-    { "label": "Internacional", "href": "#internacional", "action": "anchor" }
+    {
+      "label": "Inicio",
+      "href": "#inicio",
+      "action": "anchor"
+    },
+    {
+      "label": "Paquetería local",
+      "href": "#paqueteria-local",
+      "action": "anchor"
+    },
+    {
+      "label": "Cobertura",
+      "href": "#cobertura",
+      "action": "anchor"
+    },
+    {
+      "label": "Internacional",
+      "href": "#internacional",
+      "action": "anchor"
+    }
   ],
   "navActions": [
-    { "label": "Proveedores de Transporte", "href": "#", "action": "soon" },
-    { "label": "Afiliarme", "href": "#", "action": "soon" },
-    { "label": "Empleo", "href": "#", "action": "jobs" },
-    { "label": "Mi perfil", "href": "#", "action": "soon" }
+    {
+      "label": "Proveedores de Transporte",
+      "href": "#",
+      "action": "soon",
+      "style": "link"
+    },
+    {
+      "label": "Empleo",
+      "href": "#",
+      "action": "jobs",
+      "style": "link"
+    },
+    {
+      "label": "Mi perfil",
+      "href": "#",
+      "action": "soon",
+      "style": "outline"
+    },
+    {
+      "label": "Afiliarme",
+      "href": "#",
+      "action": "soon",
+      "style": "primary"
+    }
   ],
   "tracking": {
     "label": "Ingresa tu número de guía:",
@@ -62,7 +140,10 @@
     "title": "Entregamos lo que tu negocio promete",
     "subtitle": "Recolectamos, transportamos y entregamos tus paquetes en todo El Salvador, con seguimiento en cada paso.",
     "cta": "Afiliarme",
-    "image": { "src": "/images/placeholders/hero.svg", "alt": "Repartidor de 21 Express entregando un paquete" }
+    "image": {
+      "src": "/images/hero-courier.svg",
+      "alt": "Ilustración de un repartidor de 21 Express cargando cajas frente a una furgoneta"
+    }
   },
   "services": {
     "national": {
@@ -84,9 +165,21 @@
     "title": "Sigue cada envío desde tu teléfono",
     "intro": "Con Smart Delivery, 21 Express te muestra en todo momento dónde va tu paquete y en qué etapa está, sin llamadas ni esperas.",
     "benefits": [
-      { "icon": "radar", "title": "Tracking en tiempo real", "text": "Consulta la ubicación y el estado de tu envío cuando quieras." },
-      { "icon": "bell", "title": "Avisos de envío y salida", "text": "Te notificamos cuando recogemos tu paquete y cuando sale a entrega." },
-      { "icon": "route", "title": "Control de envíos y ruta diaria", "text": "Revisa todos tus envíos y la ruta del día desde un solo lugar." }
+      {
+        "icon": "radar",
+        "title": "Tracking en tiempo real",
+        "text": "Consulta la ubicación y el estado de tu envío cuando quieras."
+      },
+      {
+        "icon": "bell",
+        "title": "Avisos de envío y salida",
+        "text": "Te notificamos cuando recogemos tu paquete y cuando sale a entrega."
+      },
+      {
+        "icon": "route",
+        "title": "Control de envíos y ruta diaria",
+        "text": "Revisa todos tus envíos y la ruta del día desde un solo lugar."
+      }
     ],
     "stepsTitle": "Cómo rastrear en 2 pasos",
     "steps": [
@@ -94,17 +187,22 @@
       "Pégalo en la barra de rastreo y presiona la lupa."
     ],
     "cta": "Rastrear envío",
-    "image": { "src": "/images/placeholders/smart-delivery.svg", "alt": "Mano sosteniendo un smartphone con el rastreo de un envío" }
+    "mockupAlt": "Teléfono con la app de 21 Express mostrando la ruta de un envío en camino"
   },
   "coverage": {
     "title": "Llegamos hasta la puerta de tu cliente",
     "subtitle": "Tú enfócate en vender; de la logística nos encargamos nosotros.",
-    "image": { "src": "/images/placeholders/coverage.svg", "alt": "Repartidor cargando cajas junto a una furgoneta de reparto" }
+    "image": {
+      "src": "/images/placeholders/coverage.svg",
+      "alt": "Ilustración de un repartidor con cajas junto a una furgoneta de reparto de 21 Express"
+    }
   },
   "branchesSection": {
     "title": "Visita tu sucursal más cercana",
     "searchLabel": "Buscar sucursal",
     "searchPlaceholder": "Nombre, municipio o departamento",
+    "intro": "Encuentra la sucursal que te queda más cerca para dejar o recoger tus paquetes.",
+    "results": "{count} sucursales",
     "empty": "No hay sucursales que coincidan con tu búsqueda.",
     "clear": "Limpiar búsqueda",
     "mapLoading": "Cargando mapa…"
@@ -112,8 +210,18 @@
   "jobs": {
     "title": "Trabaja con nosotros",
     "intro": "Déjanos tus datos y tu CV. Si hay una plaza para ti en tu zona, te contactamos.",
-    "positions": ["Piloto", "Ayudante de ruta", "Auxiliar de bodega", "Otros"],
-    "zones": ["Occidente", "Paracentral", "San Salvador", "Oriente"],
+    "positions": [
+      "Piloto",
+      "Ayudante de ruta",
+      "Auxiliar de bodega",
+      "Otros"
+    ],
+    "zones": [
+      "Occidente",
+      "Paracentral",
+      "San Salvador",
+      "Oriente"
+    ],
     "labels": {
       "fullName": "Nombre completo",
       "phone1": "Teléfono 1",
@@ -140,16 +248,40 @@
   "footer": {
     "companyTitle": "Compañía",
     "companyLinks": [
-      { "label": "¿Por qué 21 Express?", "href": "#", "action": "soon" },
-      { "label": "Smart Delivery", "href": "#smart-delivery", "action": "anchor" },
-      { "label": "Sucursales", "href": "#sucursales", "action": "anchor" },
-      { "label": "Trabaja con nosotros", "href": "#", "action": "soon" }
+      {
+        "label": "¿Por qué 21 Express?",
+        "href": "#",
+        "action": "soon"
+      },
+      {
+        "label": "Smart Delivery",
+        "href": "#smart-delivery",
+        "action": "anchor"
+      },
+      {
+        "label": "Sucursales",
+        "href": "#sucursales",
+        "action": "anchor"
+      },
+      {
+        "label": "Trabaja con nosotros",
+        "href": "#",
+        "action": "soon"
+      }
     ],
     "contactTitle": "Contáctanos",
     "coverageTitle": "Cobertura",
     "legalLinks": [
-      { "label": "Política de privacidad", "href": "#", "action": "soon" },
-      { "label": "Términos y condiciones", "href": "#", "action": "soon" }
+      {
+        "label": "Política de privacidad",
+        "href": "#",
+        "action": "soon"
+      },
+      {
+        "label": "Términos y condiciones",
+        "href": "#",
+        "action": "soon"
+      }
     ],
     "copyright": "© 2026 21 Express. Todos los derechos reservados."
   }

@@ -45,8 +45,8 @@ Cada requisito tiene un identificador `RFn.m` para trazarlo en `tasks.md`.
 ```
 RF1  Topbar
 RF2  Navbar (sticky)
-RF3  Barra de rastreo
 RF4  Hero                          ← ancla #inicio
+RF3  Tarjeta de rastreo            (flota sobre el borde inferior del Hero)
 RF5  Split de servicios            ← anclas #paqueteria-local, #internacional
 RF6  Smart Delivery
 RF7  Banner de cobertura           ← ancla #cobertura
@@ -54,7 +54,10 @@ RF8  Localizador de sucursales     ← ancla #sucursales
 RF10 Footer
 RF11 Botón flotante de WhatsApp (fijo, sobre toda la página)
 RF9  Modal de Empleo (superpuesto, se abre desde RF2)
+RF12 Animaciones (transversal a todas las secciones)
 ```
+
+> **Identidad visual (2026-10-06):** 21 Express tiene estilo propio en rojo, amarillo y blanco (constitución, principio 9). La referencia solo aporta el orden de secciones; la composición de cada una se describe en su RF.
 
 ---
 
@@ -64,7 +67,7 @@ RF9  Modal de Empleo (superpuesto, se abre desde RF2)
 
 **Historia:** Como visitante, quiero ver accesos secundarios (país, información y redes) en una franja superior, para orientarme sin saturar la navegación principal.
 
-- **RF1.1** El sistema deberá mostrar una franja superior con fondo `brand-dark-2` que contenga: eslogan, control "Cambiar país >", enlaces "¿Por qué 21 Express?", "Tecnología Smart Delivery", "Contacto" e iconos de Facebook e Instagram.
+- **RF1.1** El sistema deberá mostrar una franja superior delgada (≈32 px) con fondo `brand-red-dark` y texto blanco que contenga: eslogan, control "Cambiar país >", enlaces "¿Por qué 21 Express?", "Tecnología Smart Delivery", "Contacto" e iconos de Facebook e Instagram.
 - **RF1.2** Cuando el usuario active "Cambiar país >", el sistema deberá abrir un menú con **El Salvador** marcado como activo y **Guatemala** y **Honduras** deshabilitados con la etiqueta "Próximamente".
 - **RF1.3** Cuando el menú de país esté abierto y el usuario pulse `Esc` o haga clic fuera, el sistema deberá cerrarlo y devolver el foco al disparador.
 - **RF1.4** Cuando el usuario active "Tecnología Smart Delivery" o "Contacto", el sistema deberá desplazarse a la sección RF6 o al footer (RF10) respectivamente.
@@ -76,23 +79,24 @@ RF9  Modal de Empleo (superpuesto, se abre desde RF2)
 
 **Historia:** Como visitante, quiero una navegación principal siempre visible, para saltar a cualquier sección o acción sin volver arriba.
 
-- **RF2.1** El sistema deberá mostrar una barra con fondo `brand-dark`, fija al hacer scroll (`sticky top-0`), con el logotipo de 21 Express a la izquierda.
-- **RF2.2** El logotipo deberá ser un SVG propio: "21" en `brand-green` y "Express" en blanco, con texto accesible "21 Express — Inicio" y enlace a `#inicio`.
+- **RF2.1** El sistema deberá mostrar una barra **blanca** fija al hacer scroll (`sticky top-0`), con el logotipo de 21 Express a la izquierda y texto `ink`.
+- **RF2.1b** Mientras la página tenga scroll mayor a 0, la navbar deberá mostrar sombra y un fondo ligeramente translúcido con desenfoque, con transición suave (RF12).
+- **RF2.2** El logotipo deberá ser un SVG propio: "21" en `brand-yellow` dentro de un hexágono `brand-red`, seguido de "Express" en `ink` (sobre fondos claros) o en blanco (sobre fondos rojos), con texto accesible "21 Express — Inicio" y enlace a `#inicio`.
 - **RF2.3** El sistema deberá mostrar los enlaces Inicio, Paquetería local, Cobertura e Internacional como anclas a las secciones de la misma página (ver §4).
-- **RF2.4** El sistema deberá mostrar los botones verdes "Proveedores de Transporte", "Afiliarme", "Empleo" y "Mi perfil".
+- **RF2.4** El sistema deberá mostrar las acciones con jerarquía visual: "Proveedores de Transporte" y "Empleo" como enlaces de texto, "Mi perfil" como botón outline y "Afiliarme" como botón rojo sólido (CTA principal).
 - **RF2.5** Cuando el usuario active "Empleo", el sistema deberá abrir el modal de RF9.
 - **RF2.6** Cuando el usuario active "Mi perfil", el sistema deberá mostrar un aviso "Próximamente" (toast o popover) sin navegar.
 - **RF2.7** Cuando el usuario active "Proveedores de Transporte" o "Afiliarme", el sistema deberá mantener el enlace en `#` y mostrar el tooltip "Próximamente".
-- **RF2.8** Mientras el viewport sea menor a 1024 px, el sistema deberá reemplazar enlaces y botones por un icono de menú hamburguesa.
+- **RF2.8** Mientras el viewport sea menor a 1280 px, el sistema deberá reemplazar enlaces y botones por un icono de menú hamburguesa. (Ajustado el 2026-10-06: con 4 enlaces y 4 botones, la barra completa no cabe en 1024 px).
 - **RF2.9** Cuando el usuario active el menú hamburguesa, el sistema deberá abrir un drawer lateral con enlaces, botones y los enlaces de la topbar, con foco atrapado y cierre con `Esc`, botón de cierre o clic en el fondo.
 - **RF2.10** Cuando el usuario elija un enlace del drawer, el sistema deberá cerrar el drawer y desplazarse al ancla.
 - **RF2.11** El sistema deberá compensar la altura de la navbar sticky al saltar a anclas (`scroll-margin-top`), para que los títulos no queden tapados.
 
-### RF3 — Barra de rastreo
+### RF3 — Tarjeta de rastreo
 
 **Historia:** Como cliente, quiero escribir mi número de guía y ver de inmediato el estado de mi envío, para no tener que llamar ni salir de la página.
 
-- **RF3.1** El sistema deberá mostrar la etiqueta "Ingresa tu número de guía:", un input asociado con placeholder `ABCDEF-00-0000000000` y un botón con icono de lupa y `aria-label="Rastrear guía"`.
+- **RF3.1** El sistema deberá mostrar una **tarjeta blanca flotante con sombra que monta sobre el borde inferior del Hero**, con la etiqueta "Ingresa tu número de guía:", un input asociado con placeholder `ABCDEF-00-0000000000` y un botón `brand-yellow` (icono `ink`) con lupa y `aria-label="Rastrear guía"`.
 - **RF3.2** Cuando el usuario escriba en el input, el sistema deberá normalizar el valor a mayúsculas y eliminar espacios al inicio y al final.
 - **RF3.3** Cuando el usuario pulse el botón o `Enter`, el sistema deberá validar el valor contra `^[A-Z]{6}-\d{2}-\d{10}$` sin recargar la página.
 - **RF3.4** Si el valor está vacío, entonces el sistema deberá mostrar debajo del input el error "Escribe tu número de guía para rastrearla." y marcar el input con `aria-invalid="true"`.
@@ -108,18 +112,20 @@ RF9  Modal de Empleo (superpuesto, se abre desde RF2)
 
 **Historia:** Como comercio, quiero entender en segundos qué ofrece 21 Express y tener un acceso directo para afiliarme.
 
-- **RF4.1** El sistema deberá mostrar una sección `#inicio` con imagen de fondo de un repartidor (licencia libre, guardada en `/public/images/`) y un overlay verde oscuro basado en `brand-dark` que garantice contraste AA del texto.
-- **RF4.2** El sistema deberá mostrar, en este orden: título, línea decorativa `brand-green`, subtítulo y botón "Afiliarme".
+- **RF4.1** El sistema deberá mostrar una sección `#inicio` con fondo `brand-red` y un patrón diagonal sutil en `brand-red-dark`. El texto va a la izquierda y, a la derecha, una ilustración SVG propia de un repartidor con cajas en amarillo y blanco (o una foto de Unsplash con recorte redondeado y un borde amarillo desplazado).
+- **RF4.2** El sistema deberá mostrar, en este orden: título blanco, línea decorativa `brand-yellow`, subtítulo blanco y botón "Afiliarme" (amarillo con texto `ink`, porque el fondo es rojo).
 - **RF4.3** El botón "Afiliarme" deberá comportarse como en RF2.7.
-- **RF4.4** La imagen del hero deberá cargarse con prioridad (`priority`) y tener `alt` descriptivo.
+- **RF4.4** La ilustración o imagen del hero deberá cargarse con prioridad (`priority`) y tener `alt` descriptivo.
+- **RF4.5** El hero deberá reservar espacio inferior para que la tarjeta de RF3 no tape su contenido.
 
-### RF5 — Split de servicios
+### RF5 — Servicios
 
 **Historia:** Como visitante, quiero distinguir de un vistazo los envíos nacionales de los internacionales.
 
-- **RF5.1** El sistema deberá mostrar dos bloques lado a lado en ≥768 px y apilados en móvil.
-- **RF5.2** El bloque izquierdo (`#paqueteria-local`) deberá tener fondo `brand-dark`, texto blanco, el titular "Paquetería nacional →", una línea descriptiva y el botón "Ver servicios".
-- **RF5.3** El bloque derecho (`#internacional`) deberá tener fondo `brand-green`, texto `brand-dark`, el titular "Internacional →", una línea descriptiva y el botón "Explorar" con fondo `brand-dark`.
+- **RF5.1** El sistema deberá mostrar, sobre fondo `surface-warm`, **dos tarjetas grandes** blancas lado a lado en ≥768 px y apiladas en móvil. Cada tarjeta lleva icono en badge, titular con flecha, línea descriptiva y botón.
+- **RF5.2** La tarjeta izquierda (`#paqueteria-local`) deberá mostrar el titular "Paquetería nacional →", badge de icono `brand-red` y el botón "Ver servicios" rojo.
+- **RF5.3** La tarjeta derecha (`#internacional`) deberá mostrar el titular "Internacional →", badge de icono `brand-yellow` y el botón "Explorar" amarillo con texto `ink`.
+- **RF5.3b** Cuando el usuario pase el cursor o enfoque una tarjeta, esta deberá elevarse (sombra + escala 1.02) y su flecha desplazarse a la derecha (RF12).
 - **RF5.4** Cuando el usuario active "Ver servicios" o "Explorar", el sistema deberá mantener el enlace en `#` y mostrar el tooltip "Próximamente".
 
 ### RF6 — Smart Delivery
@@ -127,8 +133,8 @@ RF9  Modal de Empleo (superpuesto, se abre desde RF2)
 **Historia:** Como cliente, quiero conocer cómo la tecnología de 21 Express me mantiene informado, y poder rastrear mi envío desde ahí.
 
 - **RF6.1** El sistema deberá mostrar una sección `#smart-delivery` de dos columnas (apiladas en móvil).
-- **RF6.2** La columna izquierda deberá tener fondo `brand-dark`, un sello "SMART DELIVERY", el texto "TECNOLOGÍA LOGÍSTICA" en `brand-lime` y una imagen de una mano sosteniendo un smartphone.
-- **RF6.3** La columna derecha deberá tener fondo blanco con: título, párrafo introductorio que mencione a 21 Express, y tres beneficios con icono: tracking en tiempo real; notificaciones de envío y salida; control de envíos y ruta diaria.
+- **RF6.2** La sección deberá tener fondo blanco. Una columna muestra un **mockup de teléfono sobre un círculo `brand-yellow`**, con el sello "SMART DELIVERY" en `brand-red` y el texto "TECNOLOGÍA LOGÍSTICA".
+- **RF6.3** La otra columna deberá contener: título, párrafo introductorio que mencione a 21 Express, y tres beneficios con icono blanco en **badge `brand-red`**: tracking en tiempo real; notificaciones de envío y salida; control de envíos y ruta diaria.
 - **RF6.4** El sistema deberá mostrar un bloque "Cómo rastrear en 2 pasos" con dos pasos numerados.
 - **RF6.5** Cuando el usuario active "Rastrear envío", el sistema deberá desplazarse suavemente hasta la barra de RF3 y enfocar `#tracking-input`.
 - **RF6.6** Mientras el usuario tenga activada la preferencia `prefers-reduced-motion`, el sistema deberá desplazarse sin animación.
@@ -137,7 +143,7 @@ RF9  Modal de Empleo (superpuesto, se abre desde RF2)
 
 **Historia:** Como comercio, quiero saber que 21 Express llega hasta mis clientes en todo el país.
 
-- **RF7.1** El sistema deberá mostrar una sección `#cobertura` con una imagen de repartidor con cajas y furgoneta, un pin grande en `brand-lime`, un titular sobre llegar hasta tu cliente y un subtítulo sobre delegar la logística en 21 Express.
+- **RF7.1** El sistema deberá mostrar una sección `#cobertura` como **franja `brand-yellow` con texto `ink`**: pin grande en `brand-red`, titular sobre llegar hasta tu cliente, subtítulo sobre delegar la logística en 21 Express e imagen de repartidor con cajas y furgoneta.
 - **RF7.2** El pin deberá ser decorativo (`aria-hidden="true"`) y la imagen tener `alt` descriptivo.
 
 ### RF8 — Localizador de sucursales
@@ -148,7 +154,8 @@ RF9  Modal de Empleo (superpuesto, se abre desde RF2)
 - **RF8.2** El sistema deberá mostrar un panel izquierdo con un buscador (con label) y una lista de tarjetas de sucursal con foto, nombre, dirección, horario y teléfono (enlace `tel:`), y un panel derecho con un mapa Leaflet con tiles de OpenStreetMap y un marcador por sucursal.
 - **RF8.3** El sistema deberá cargar las sucursales desde `branches.json` (mínimo 6, todas en El Salvador).
 - **RF8.4** Cuando el usuario escriba en el buscador, el sistema deberá filtrar la lista y los marcadores por nombre, municipio o departamento, sin distinguir mayúsculas ni tildes (p. ej. "san miguel", "SAN MIGUEL" y "sán miguél" son equivalentes).
-- **RF8.5** Cuando el usuario haga clic o pulse `Enter` sobre una tarjeta, el sistema deberá volar (`flyTo`) a esa sucursal, abrir su popup y marcar la tarjeta como activa.
+- **RF8.5** Cuando el usuario haga clic o pulse `Enter` sobre una tarjeta, el sistema deberá volar (`flyTo`) a esa sucursal, abrir su popup y marcar la tarjeta como activa (**borde izquierdo `brand-red`**).
+- **RF8.5b** Las tarjetas deberán ser blancas sobre `surface-warm` y los marcadores del mapa, pines `brand-red` (el activo, `brand-yellow` con borde rojo).
 - **RF8.6** Si el filtro no tiene coincidencias, entonces el sistema deberá mostrar un estado vacío ("No hay sucursales que coincidan con tu búsqueda.") con opción de limpiar el filtro.
 - **RF8.7** El mapa deberá cargarse solo en el cliente (`dynamic(..., { ssr: false })`), mostrar un placeholder mientras carga y no producir errores en consola (incluidos los iconos de marcador por defecto de Leaflet).
 - **RF8.8** Mientras el viewport sea menor a 768 px, el sistema deberá apilar lista y mapa (mapa arriba con altura fija, lista debajo con scroll propio limitado).
@@ -172,7 +179,7 @@ RF9  Modal de Empleo (superpuesto, se abre desde RF2)
 
 **Historia:** Como visitante, quiero encontrar al final de la página los datos de contacto y la información legal.
 
-- **RF10.1** El sistema deberá mostrar un footer `#contacto` con fondo `brand-dark` que incluya: logotipo, enlace de WhatsApp, dirección de casa matriz ("Villas de Suiza, El Salvador"), iconos de redes, columna "Compañía", columna "Contáctanos", bloque de cobertura con bandera, copyright "© 2026 21 Express" y enlaces a Política de privacidad y Términos.
+- **RF10.1** El sistema deberá mostrar un footer `#contacto` con fondo `brand-red-dark`, texto blanco y acentos `brand-yellow` que incluya: logotipo, enlace de WhatsApp, dirección de casa matriz ("Villas de Suiza, El Salvador"), iconos de redes, columna "Compañía", columna "Contáctanos", bloque de cobertura con bandera, copyright "© 2026 21 Express" y enlaces a Política de privacidad y Términos.
 - **RF10.2** Todos los datos del footer deberán provenir de `site.json`.
 - **RF10.3** Los enlaces que no sean anclas (Política de privacidad, Términos, páginas de la columna "Compañía") deberán apuntar a `#` y mostrar el tooltip "Próximamente".
 - **RF10.4** El bloque de cobertura deberá mostrar únicamente la bandera de El Salvador (SVG propio, con texto accesible "El Salvador"). La lista de países sale de `site.json` para poder agregar más en el futuro sin tocar JSX.
@@ -181,9 +188,24 @@ RF9  Modal de Empleo (superpuesto, se abre desde RF2)
 
 **Historia:** Como cliente, quiero escribir a 21 Express por WhatsApp desde cualquier punto de la página.
 
-- **RF11.1** El sistema deberá mostrar un botón circular fijo abajo a la derecha, visible en toda la página, con el icono de WhatsApp (SVG propio) y `aria-label="Escríbenos por WhatsApp"`.
+- **RF11.1** El sistema deberá mostrar un botón circular fijo abajo a la derecha, visible en toda la página, con el **verde oficial de WhatsApp (`#25D366`)** —única excepción a la paleta, para que el usuario lo reconozca—, el icono de WhatsApp (SVG propio) en blanco y `aria-label="Escríbenos por WhatsApp"`.
 - **RF11.2** Cuando el usuario active el botón, el sistema deberá abrir en pestaña nueva `https://wa.me/<número>?text=<mensaje codificado>`, con número y mensaje tomados de `site.json`.
 - **RF11.3** El botón no deberá tapar el contenido interactivo ni el botón de cierre de los modales (se oculta o queda detrás mientras haya un modal abierto).
+
+### RF12 — Animaciones
+
+**Historia:** Como visitante, quiero que la página se sienta viva y cuidada, sin que las animaciones me distraigan ni me hagan esperar para leer.
+
+- **RF12.1** El sistema deberá implementar las animaciones con `framer-motion`, con duraciones entre **0.2 y 0.6 s** (los loops decorativos pueden durar más por ciclo).
+- **RF12.2** Cuando cargue la página, el título, la línea decorativa y el subtítulo del Hero deberán entrar en cascada (fade + slide-up, *stagger* de 0.1 s).
+- **RF12.3** La ilustración del Hero deberá flotar suavemente en loop (eje Y ±8 px, ciclo de 4 s).
+- **RF12.4** Cuando una sección entre en el viewport, deberá aparecer con fade-up (`whileInView`, `once: true`).
+- **RF12.5** Cuando el usuario pase el cursor sobre una tarjeta (servicios, sucursales), esta deberá elevarse y escalar a 1.02.
+- **RF12.6** Si la validación de la guía falla, la tarjeta de rastreo deberá hacer un *shake* corto. El modal de resultado deberá entrar con scale + fade y los eventos de la línea de tiempo aparecer paso a paso. *(Se implementa junto con la lógica de RF3 en T6.)*
+- **RF12.7** La navbar deberá animar la transición de fondo y sombra al hacer scroll (RF2.1b).
+- **RF12.8** El botón de WhatsApp deberá emitir un pulso sutil cada 5 s.
+- **RF12.9** Mientras el usuario tenga activada `prefers-reduced-motion`, el sistema deberá desactivar todas las animaciones (`MotionConfig reducedMotion="user"` + reglas CSS) y mostrar el contenido en su estado final.
+- **RF12.10** Las animaciones no deberán provocar desajustes de hidratación.
 
 ---
 
@@ -211,12 +233,13 @@ RF9  Modal de Empleo (superpuesto, se abre desde RF2)
 
 ## 9. Definition of Done
 
-- [ ] Todas las secciones RF1–RF11 implementadas con marca 21 Express y copy original.
+- [ ] Todas las secciones RF1–RF12 implementadas con marca e identidad visual de 21 Express y copy original.
 - [ ] 3 guías de prueba con estados distintos funcionan; los errores de formato y "no encontrada" se muestran bien.
 - [ ] Mínimo 6 sucursales de El Salvador filtrables, con el mapa sin errores.
 - [ ] Responsive verificado en 375 / 768 / 1280 px.
 - [ ] `npm run build` y `npm run lint` limpios; consola sin errores.
 - [ ] Búsqueda de la marca de referencia en `src/` y `public/` sin resultados.
+- [ ] Sin rastros de la paleta verde: `grep -riE "green|#0D4732|#00D632|lime" src/` vacío.
 
 ## 10. Aclaraciones aprobadas (2026-10-06)
 
@@ -226,4 +249,5 @@ RF9  Modal de Empleo (superpuesto, se abre desde RF2)
 | A2 | Imágenes | Fuente: **Unsplash** (licencia libre). En el MVP cada imagen es un **placeholder SVG local** en `/public/images/placeholders/`, referenciado por ruta desde los JSON. Las fotos reales se cargan después cambiando solo la ruta en el JSON, sin tocar componentes. Las 6 sucursales pueden compartir placeholder. |
 | A3 | Versión | Se usa la versión estable más reciente del stack (Next.js 16, React 19, Tailwind CSS 4). Detalle y excepciones en `plan.md` §5. |
 | A4 | Banderas | El footer muestra **solo El Salvador** (RF10.4). El selector de país de la topbar (RF1.2) se mantiene con Guatemala y Honduras como "Próximamente". |
+| A6 | Identidad visual | Paleta roja/amarilla/blanca, layout propio por sección y animaciones (RF12). Ver constitución, principio 9. |
 | A5 | Anclas | `#inicio`, `#paqueteria-local`, `#internacional`, `#smart-delivery`, `#cobertura`, `#sucursales`, `#contacto`, según §4. |

@@ -6,6 +6,32 @@
 | Ritmo | 2 tareas por turno, en orden. Se marca el checkbox solo cuando se cumple **toda** la verificación. |
 | Fecha | 2026-10-06 |
 
+## Registro de avance
+
+**2026-10-06 — Cambio de orden pedido por el cliente:** la Home debe verse completa antes de conectar la lógica. Se adelantó toda la estructura visual (RF1–RF11) en `page.tsx` y la vista de paleta pasó a `/styleguide`.
+
+| Tarea | Estado | Pendiente |
+|---|---|---|
+| T1, T2 | ✅ Completas | — |
+| T3 | 🟡 Parcial | Hecho: `ComingSoon`, `buttonStyles`, iconos, `Logo`, `WhatsAppButton` (RF11). Falta: `ui/Modal.tsx` (se construye con T5/T6). |
+| T4 | ✅ Completa | RF2.5 ("Empleo" abre el modal) queda para T5, como estaba previsto. |
+| T5 | ⬜ Pendiente | "Empleo" muestra "Próximamente" mientras tanto. |
+| T6 | 🟡 Solo UI | La barra de rastreo se ve y no recarga la página. Faltan validación, errores inline y modal. |
+| T7, T8 | ✅ Completas | — |
+| T9 | 🟡 Solo UI | Mapa Leaflet con 6 pines y lista de tarjetas. Faltan filtro, tarjeta activa, `flyTo`/popup y estado vacío. |
+| T10 | ⬜ Pendiente | — |
+
+**2026-10-06 — Cambio de identidad visual (constitución, principio 9; spec RF1–RF12):** paleta roja/amarilla/blanca, layout propio por sección, `framer-motion` y RF12. Se rehicieron con el nuevo estilo T3 (piezas hechas), T4, T7 y T8, que se mantienen ✅ porque se volvieron a verificar con el estilo nuevo.
+
+| Ítem | Estado | Detalle |
+|---|---|---|
+| Paleta y docs | ✅ | Constitución §9, AGENTS §3, spec (RF1–RF12, A6) y plan (§1.4, §1.5, §4.2, §5.1) actualizados. `grep -riE "green\|#0D4732\|#00D632\|lime" src/` vacío. |
+| RF12 Animaciones | 🟡 Parcial | Hechas: cascada del hero (12.2), flotación (12.3), `Reveal` whileInView (12.4), hover de tarjetas (12.5), navbar al hacer scroll (12.7), pulso de WhatsApp (12.8) y reduced motion sin desajustes de hidratación (12.9, 12.10). Pendiente: shake, modal y línea de tiempo del rastreo (12.6), con T6. |
+| "1 Issue" de Next | ✅ Diagnosticado | 1) Hydration mismatch por el atributo `cz-shortcut-listen` que la **extensión ColorZilla** inyecta en `<body>`: no lo causa nuestro código y no se silencia. 2) Warning de Next 16 por `scroll-behavior: smooth`: corregido con `data-scroll-behavior="smooth"` en `<html>`. |
+| Tiles del mapa | ✅ | Host único `tile.openstreetmap.org` (los subdominios a/b/c están en desuso). |
+| Error del mapa (`appendChild`) | ✅ | `MapContainer` de react-leaflet 5 destruía el mapa al reconectar efectos (StrictMode, Fast Refresh, `<Activity>`). Reemplazado por `MapRoot` (plan §3.4). Se reprodujo de forma determinista con `<Activity>` y quedó verificado: 3 ciclos de ocultar y mostrar sin errores. |
+| Pulido celular/tableta | ✅ | Revisión a tamaño real en 375, 768 y 1024 px. Cambios: eslogan oculto donde quedaba cortado; ilustración del hero más compacta en celular; la flecha de los títulos de servicios no queda sola en otra línea; Smart Delivery a 2 columnas desde 1024 px, con el teléfono fijo al hacer scroll; pin de cobertura al lado del título solo desde 1280 px; sucursales como carrusel horizontal en celular (con `min-w-0` en la columna del grid); footer con enlaces de "Compañía" en 2 columnas en celular. |
+
 ## Verificación común (aplica a TODAS las tareas)
 
 Antes de marcar una tarea:
@@ -73,7 +99,7 @@ Antes de marcar una tarea:
 - Prueba temporal en `page.tsx` (se retira al terminar): un `ComingSoon` muestra el tooltip con Tab y con clic sin cambiar la URL, y un `Modal` se abre, atrapa el Tab, se cierra con `Esc` y devuelve el foco al botón que lo abrió.
 - Con un modal abierto, el botón de WhatsApp queda debajo del backdrop y no se puede pulsar (RF11.3).
 
-### - [ ] T4 — Topbar y Navbar con drawer móvil
+### - [x] T4 — Topbar y Navbar con drawer móvil
 **Cubre:** RF1 completo · RF2 completo excepto RF2.5 (el modal de Empleo se conecta en T5)
 **Hacer:**
 - `Topbar.tsx` + `CountrySwitcher.tsx`: menú con El Salvador activo y Guatemala/Honduras deshabilitados con "Próximamente". Cierre con `Esc` y con clic fuera.
@@ -123,7 +149,7 @@ Antes de marcar una tarea:
 
 ## Bloque 4
 
-### - [ ] T7 — Hero, split de servicios y Smart Delivery
+### - [x] T7 — Hero, split de servicios y Smart Delivery
 **Cubre:** RF4, RF5 y RF6 completos
 **Hacer:**
 - `Hero.tsx` (`#inicio`): imagen con `priority`, overlay `brand-dark`, título, línea `brand-green`, subtítulo y "Afiliarme" (`ComingSoon`).
@@ -136,7 +162,7 @@ Antes de marcar una tarea:
 - "Rastrear envío" lleva a la barra de rastreo y el cursor queda en `#tracking-input` (`document.activeElement.id === 'tracking-input'`). Con *reduced motion* emulado, el salto es instantáneo.
 - "Afiliarme", "Ver servicios" y "Explorar" muestran "Próximamente".
 
-### - [ ] T8 — Banner de cobertura y footer
+### - [x] T8 — Banner de cobertura y footer
 **Cubre:** RF7 y RF10 completos
 **Hacer:**
 - `CoverageBanner.tsx` (`#cobertura`): imagen, pin `brand-lime` decorativo, titular y subtítulo.

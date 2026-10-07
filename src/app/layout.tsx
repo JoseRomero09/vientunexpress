@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Montserrat } from 'next/font/google';
+import { MotionProvider } from '@/components/motion/MotionProvider';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
@@ -25,8 +26,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es-SV" className={`${inter.variable} ${montserrat.variable}`}>
-      <body className="bg-surface font-sans text-brand-dark antialiased">{children}</body>
+    <html
+      lang="es-SV"
+      data-scroll-behavior="smooth"
+      className={`${inter.variable} ${montserrat.variable}`}
+    >
+      <body className="bg-surface font-sans text-ink antialiased">
+        <MotionProvider>{children}</MotionProvider>
+      </body>
     </html>
   );
 }

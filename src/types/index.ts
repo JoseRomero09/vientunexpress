@@ -38,10 +38,13 @@ export interface Branch {
 // ---------- Sitio ----------
 export type LinkAction = 'anchor' | 'soon' | 'jobs' | 'external';
 
+export type LinkStyle = 'link' | 'outline' | 'primary';
+
 export interface SiteLink {
   label: string;
   href: string;
   action: LinkAction;
+  style?: LinkStyle; // peso visual en la navbar (RF2.4)
 }
 
 export interface SocialLink {
@@ -122,13 +125,15 @@ export interface SiteConfig {
     stepsTitle: string;
     steps: string[];
     cta: string;
-    image: ImageRef;
+    mockupAlt: string;
   };
   coverage: { title: string; subtitle: string; image: ImageRef };
   branchesSection: {
     title: string;
     searchLabel: string;
     searchPlaceholder: string;
+    intro: string;
+    results: string; // "{count}" se reemplaza por el número de resultados
     empty: string;
     clear: string;
     mapLoading: string;

@@ -21,6 +21,7 @@ Guía operativa para cualquier agente (humano o IA) que trabaje en este reposito
 | Mapa | `leaflet` + `react-leaflet`, tiles de **OpenStreetMap**, cargado con `next/dynamic(..., { ssr: false })`. **Prohibido Google Maps** y cualquier proveedor que exija API key. |
 | Datos | JSON en `src/data/`: `guides.json`, `branches.json`, `site.json` (navegación, redes, teléfono, WhatsApp y textos repetidos). |
 | Tipografía | Montserrat (títulos) + Inter (texto) vía `next/font/google`. |
+| Animaciones | `framer-motion` (RF12), con `MotionConfig reducedMotion="user"`. |
 
 ## 2. Comandos
 
@@ -31,19 +32,37 @@ npm run build    # build estático (genera /out)
 npm run lint     # análisis estático (eslint . — Next 16 ya no incluye `next lint`)
 ```
 
-## 3. Paleta (definida en `@theme`, `src/app/globals.css`)
+## 3. Identidad visual (definida en `@theme`, `src/app/globals.css`)
+
+21 Express tiene **identidad visual propia**: la referencia solo define la estructura de secciones, no el estilo (constitución, principio 9).
 
 | Token | Hex | Uso principal |
 |---|---|---|
-| `brand-dark` | `#0D4732` | Navbar, footer, bloques oscuros |
-| `brand-dark-2` | `#13503B` | Topbar |
-| `brand-green` | `#00D632` | Botones primarios, acentos, "21" del logo |
-| `brand-green-hover` | `#00C82B` | Hover de botones verdes |
-| `brand-lime` | `#A3E635` | Detalles destacados (pin, "TECNOLOGÍA LOGÍSTICA") |
-| `surface` | `#FFFFFF` | Fondo base |
-| `surface-muted` | `#F4F6F8` | Fondos secundarios, tarjetas |
+| `brand-red` | `#D7182A` | Color principal: hero, CTAs primarios, badges, marcadores del mapa |
+| `brand-red-dark` | `#9E0F1C` | Topbar, footer, hover de los CTAs rojos |
+| `brand-yellow` | `#FFC20E` | Acentos, CTAs secundarios, "21" del logo, botón de lupa |
+| `brand-yellow-soft` | `#FFE58A` | Fondos de highlights |
+| `surface` | `#FFFFFF` | Fondo base, navbar |
+| `surface-warm` | `#FFF9EC` | Fondos secundarios (servicios, sucursales) |
+| `ink` | `#1A1A1A` | Texto principal |
+| `ink-muted` | `#5B5B5B` | Texto secundario |
+| `whatsapp` | `#25D366` | **Solo** el botón flotante de WhatsApp (color oficial de esa marca) |
 
-No uses colores hex sueltos en componentes: usa siempre los tokens.
+**Reglas de contraste (AA):**
+
+| Combinación | Ratio | Uso |
+|---|---|---|
+| Blanco sobre `brand-red` | 5.2:1 ✅ | Texto de botones y bloques rojos |
+| Blanco sobre `brand-red-dark` | 8.9:1 ✅ | Topbar, footer |
+| `ink` sobre `brand-yellow` | 10.8:1 ✅ | Texto sobre amarillo |
+| `brand-red` sobre blanco / `surface-warm` | 5.2 / 4.9:1 ✅ | Enlaces y titulares en rojo |
+| `brand-yellow` sobre `brand-red-dark` | 5.5:1 ✅ | Acentos en footer/topbar |
+| `brand-yellow` sobre `brand-red` | 3.2:1 ⚠️ | Solo logo y texto grande (≥24 px o ≥18.7 px bold) |
+| Blanco sobre `brand-yellow` | 1.6:1 ❌ | **Prohibido** |
+
+No uses colores hex sueltos en componentes: usa siempre los tokens. No queda ningún verde de marca: `grep -riE "green|#0D4732|#00D632|lime" src/` debe devolver vacío.
+
+**Animaciones:** `framer-motion`, siempre respetando `prefers-reduced-motion` (ver RF12 en la spec). Duraciones entre 0.2 y 0.6 s, salvo los loops decorativos.
 
 ## 4. Idioma y convenciones
 

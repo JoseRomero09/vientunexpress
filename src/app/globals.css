@@ -1,27 +1,42 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-brand-dark: #0D4732;
-  --color-brand-dark-2: #13503B;
-  --color-brand-green: #00D632;
-  --color-brand-green-hover: #00C82B;
-  --color-brand-lime: #A3E635;
+  --color-brand-red: #D7182A;
+  --color-brand-red-dark: #9E0F1C;
+  --color-brand-yellow: #FFC20E;
+  --color-brand-yellow-soft: #FFE58A;
   --color-surface: #FFFFFF;
-  --color-surface-muted: #F4F6F8;
+  --color-surface-warm: #FFF9EC;
+  --color-ink: #1A1A1A;
+  --color-ink-muted: #5B5B5B;
+  /* Solo para el botón flotante de WhatsApp (RF11): color oficial de esa marca */
+  --color-whatsapp: #25D366;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* Contenedor horizontal común a todas las secciones */
+@utility page-container {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+/* Patrón diagonal sutil del hero (RF4.1) */
+@utility diagonal-pattern {
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--color-brand-red-dark) 0 2px,
+    transparent 2px 26px
+  );
+}
+
 @layer base {
+  /* Next 16 exige data-scroll-behavior="smooth" en <html> (ver layout.tsx) */
   html {
     scroll-behavior: smooth;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
   }
 
   /* RF2.11: compensa la navbar sticky al saltar a anclas */
@@ -36,11 +51,27 @@
   }
 
   :focus-visible {
-    outline: 3px solid var(--color-brand-lime);
+    outline: 3px solid var(--color-brand-yellow);
     outline-offset: 2px;
+    box-shadow: 0 0 0 5px var(--color-brand-red);
   }
 
   dialog::backdrop {
-    background: rgb(13 71 50 / 0.6);
+    background: rgb(26 26 26 / 0.6);
+  }
+
+  /* RF12.9: sin movimiento para quien lo pidió en su sistema */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }

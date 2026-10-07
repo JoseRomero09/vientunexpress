@@ -32,6 +32,16 @@ El rastreo y el mapa funcionan únicamente en el frontend con datos mock. No hay
 - Foco visible en todos los elementos interactivos.
 - Contraste mínimo **WCAG AA**.
 - Modales y drawers operables por teclado: foco atrapado, cierre con `Esc` y retorno del foco al disparador.
+- Animaciones desactivadas cuando el usuario activa `prefers-reduced-motion`.
 
 ## 8. Verificación continua
 Ninguna tarea se da por cerrada si rompe una sección previa, `npm run build` o `npm run lint`.
+
+## 9. Identidad visual propia
+21 Express tiene identidad visual propia: **la referencia solo define la estructura de secciones, no el estilo**. Colores, composición de cada sección, ilustraciones y animaciones son de 21 Express y deben diferenciarse claramente de la referencia.
+
+- **Paleta:** rojo `#D7182A` (principal), rojo oscuro `#9E0F1C`, amarillo `#FFC20E`, amarillo suave `#FFE58A`, blanco `#FFFFFF`, blanco cálido `#FFF9EC`, tinta `#1A1A1A` y tinta suave `#5B5B5B`. La tabla completa de tokens está en `AGENTS.md` §3.
+- **Texto blanco sobre rojo. Texto tinta sobre amarillo. Nunca blanco sobre amarillo.**
+- **No hay verdes de marca.** La única excepción es el botón flotante de WhatsApp, que usa el verde oficial de esa marca (`#25D366`) para que el usuario lo reconozca.
+
+**Verificación:** `grep -riE "green|#0D4732|#00D632|lime" src/` devuelve vacío.

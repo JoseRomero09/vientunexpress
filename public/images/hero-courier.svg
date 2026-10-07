@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 480">
+  <!-- Ilustración propia de 21 Express: repartidor con cajas frente a la furgoneta -->
+  <!-- Sombra en el piso -->
+  <ellipse cx="290" cy="448" rx="250" ry="18" fill="#9E0F1C" opacity="0.55"/>
+
+  <!-- Destellos -->
+  <g fill="#FFE58A">
+    <path d="M60 70 l6 16 16 6 -16 6 -6 16 -6 -16 -16 -6 16 -6z"/>
+    <path d="M500 40 l4 11 11 4 -11 4 -4 11 -4 -11 -11 -4 11 -4z"/>
+    <path d="M520 250 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z"/>
+  </g>
+
+  <!-- Furgoneta -->
+  <g transform="translate(180 168)">
+    <path d="M0 40 Q0 0 40 0 H250 Q282 0 298 28 L346 110 Q360 132 360 160 V228 Q360 250 338 250 H22 Q0 250 0 228 Z" fill="#FFFFFF"/>
+    <path d="M262 24 H284 Q292 24 297 32 L332 104 H262 Z" fill="#9E0F1C" opacity="0.85"/>
+    <path d="M250 28 V228" stroke="#F3D6D9" stroke-width="3"/>
+    <rect x="0" y="152" width="360" height="22" fill="#FFC20E"/>
+    <rect x="344" y="128" width="14" height="18" rx="4" fill="#FFC20E"/>
+    <!-- Logo en el costado -->
+    <polygon points="120,44 155,64 155,104 120,124 85,104 85,64" fill="#D7182A"/>
+    <text x="120" y="96" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="34" font-weight="800" fill="#FFC20E">21</text>
+    <!-- Ruedas -->
+    <circle cx="80" cy="250" r="36" fill="#1A1A1A"/>
+    <circle cx="80" cy="250" r="14" fill="#FFE58A"/>
+    <circle cx="290" cy="250" r="36" fill="#1A1A1A"/>
+    <circle cx="290" cy="250" r="14" fill="#FFE58A"/>
+  </g>
+
+  <!-- Líneas de velocidad -->
+  <g stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" opacity="0.55">
+    <path d="M20 300 H70"/>
+    <path d="M36 330 H96"/>
+    <path d="M14 360 H58"/>
+  </g>
+
+  <!-- Repartidor -->
+  <g transform="translate(70 104)">
+    <!-- Piernas -->
+    <rect x="58" y="214" width="26" height="110" rx="12" fill="#1A1A1A"/>
+    <rect x="98" y="214" width="26" height="110" rx="12" fill="#1A1A1A"/>
+    <ellipse cx="68" cy="328" rx="24" ry="11" fill="#FFFFFF"/>
+    <ellipse cx="116" cy="328" rx="24" ry="11" fill="#FFFFFF"/>
+    <!-- Torso -->
+    <path d="M38 118 Q38 92 64 90 H118 Q144 92 144 118 V226 H38 Z" fill="#FFC20E"/>
+    <rect x="38" y="200" width="106" height="12" fill="#FFFFFF" opacity="0.85"/>
+    <!-- Cabeza -->
+    <rect x="80" y="76" width="22" height="20" rx="6" fill="#E9B48A"/>
+    <circle cx="91" cy="58" r="30" fill="#F2C9A0"/>
+    <circle cx="82" cy="62" r="3.2" fill="#1A1A1A"/>
+    <circle cx="101" cy="62" r="3.2" fill="#1A1A1A"/>
+    <path d="M83 74 Q91 80 99 74" fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round"/>
+    <!-- Gorra -->
+    <path d="M60 50 Q62 22 91 22 Q120 22 122 50 Z" fill="#FFFFFF"/>
+    <path d="M88 48 H138 Q140 57 131 57 H88 Z" fill="#9E0F1C"/>
+    <circle cx="91" cy="24" r="4" fill="#9E0F1C"/>
+    <!-- Brazos -->
+    <path d="M44 120 Q16 168 62 186" fill="none" stroke="#FFC20E" stroke-width="24" stroke-linecap="round"/>
+    <path d="M138 120 Q166 168 120 186" fill="none" stroke="#FFC20E" stroke-width="24" stroke-linecap="round"/>
+    <!-- Cajas -->
+    <rect x="34" y="128" width="114" height="76" rx="6" fill="#FFE58A" stroke="#9E0F1C" stroke-width="4"/>
+    <rect x="84" y="128" width="14" height="76" fill="#FFC20E"/>
+    <path d="M46 186 h22 M46 194 h14" stroke="#9E0F1C" stroke-width="3" stroke-linecap="round"/>
+    <rect x="52" y="98" width="78" height="32" rx="5" fill="#FFFFFF" stroke="#9E0F1C" stroke-width="4"/>
+    <rect x="84" y="98" width="14" height="32" fill="#FFC20E"/>
+    <!-- Manos -->
+    <circle cx="60" cy="188" r="11" fill="#F2C9A0"/>
+    <circle cx="122" cy="188" r="11" fill="#F2C9A0"/>
+  </g>
+</svg>
