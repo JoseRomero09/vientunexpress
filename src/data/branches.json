@@ -1,0 +1,74 @@
+[
+  {
+    "id": "san-salvador-centro",
+    "name": "21 Express San Salvador Centro",
+    "address": "Avenida España, Centro Histórico",
+    "department": "San Salvador",
+    "municipality": "San Salvador",
+    "schedule": "Lun a vie 8:00–17:00 · Sáb 8:00–12:00",
+    "phone": "7641-6944",
+    "lat": 13.6989,
+    "lng": -89.1914,
+    "image": { "src": "/images/placeholders/branch.svg", "alt": "Fachada de la sucursal 21 Express San Salvador Centro" }
+  },
+  {
+    "id": "antiguo-cuscatlan",
+    "name": "21 Express Antiguo Cuscatlán",
+    "address": "Bulevar Santa Elena, zona comercial",
+    "department": "La Libertad",
+    "municipality": "Antiguo Cuscatlán",
+    "schedule": "Lun a vie 8:00–18:00 · Sáb 8:00–13:00",
+    "phone": "7641-6944",
+    "lat": 13.6729,
+    "lng": -89.24,
+    "image": { "src": "/images/placeholders/branch.svg", "alt": "Fachada de la sucursal 21 Express Antiguo Cuscatlán" }
+  },
+  {
+    "id": "santa-ana",
+    "name": "21 Express Santa Ana",
+    "address": "Avenida Independencia Sur, centro",
+    "department": "Santa Ana",
+    "municipality": "Santa Ana",
+    "schedule": "Lun a vie 8:00–17:00 · Sáb 8:00–12:00",
+    "phone": "7641-6944",
+    "lat": 13.9942,
+    "lng": -89.5597,
+    "image": { "src": "/images/placeholders/branch.svg", "alt": "Fachada de la sucursal 21 Express Santa Ana" }
+  },
+  {
+    "id": "san-miguel",
+    "name": "21 Express San Miguel",
+    "address": "Avenida Roosevelt Sur, barrio San Felipe",
+    "department": "San Miguel",
+    "municipality": "San Miguel",
+    "schedule": "Lun a vie 8:00–17:00 · Sáb 8:00–12:00",
+    "phone": "7641-6944",
+    "lat": 13.4833,
+    "lng": -88.1833,
+    "image": { "src": "/images/placeholders/branch.svg", "alt": "Fachada de la sucursal 21 Express San Miguel" }
+  },
+  {
+    "id": "sonsonate",
+    "name": "21 Express Sonsonate",
+    "address": "Calle Obispo Marroquín, centro",
+    "department": "Sonsonate",
+    "municipality": "Sonsonate",
+    "schedule": "Lun a vie 8:00–17:00 · Sáb 8:00–12:00",
+    "phone": "7641-6944",
+    "lat": 13.7189,
+    "lng": -89.7242,
+    "image": { "src": "/images/placeholders/branch.svg", "alt": "Fachada de la sucursal 21 Express Sonsonate" }
+  },
+  {
+    "id": "la-libertad-puerto",
+    "name": "21 Express Puerto de La Libertad",
+    "address": "Carretera del Litoral, entrada al puerto",
+    "department": "La Libertad",
+    "municipality": "La Libertad",
+    "schedule": "Lun a vie 8:00–17:00 · Sáb 8:00–12:00",
+    "phone": "7641-6944",
+    "lat": 13.4883,
+    "lng": -89.3222,
+    "image": { "src": "/images/placeholders/branch.svg", "alt": "Fachada de la sucursal 21 Express Puerto de La Libertad" }
+  }
+]

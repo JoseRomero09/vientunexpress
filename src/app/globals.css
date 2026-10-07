@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand-dark: #0D4732;
+  --color-brand-dark-2: #13503B;
+  --color-brand-green: #00D632;
+  --color-brand-green-hover: #00C82B;
+  --color-brand-lime: #A3E635;
+  --color-surface: #FFFFFF;
+  --color-surface-muted: #F4F6F8;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* RF2.11: compensa la navbar sticky al saltar a anclas */
+  [id] {
+    scroll-margin-top: 6rem;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-heading);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-brand-lime);
+    outline-offset: 2px;
+  }
+
+  dialog::backdrop {
+    background: rgb(13 71 50 / 0.6);
+  }
+}

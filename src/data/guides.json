@@ -1,0 +1,38 @@
+[
+  {
+    "id": "SVSALE-01-0000000001",
+    "status": "delivered",
+    "origin": "San Salvador",
+    "destination": "Santa Ana",
+    "estimatedDelivery": "2026-10-02",
+    "events": [
+      { "date": "2026-10-02T14:35:00-06:00", "location": "Santa Ana", "description": "Paquete entregado al destinatario." },
+      { "date": "2026-10-02T08:10:00-06:00", "location": "Santa Ana", "description": "El repartidor salió con tu paquete." },
+      { "date": "2026-10-01T18:20:00-06:00", "location": "Centro de distribución Santa Ana", "description": "El paquete llegó al centro de distribución." },
+      { "date": "2026-10-01T10:05:00-06:00", "location": "Bodega central, San Salvador", "description": "Recibimos tu paquete en bodega." }
+    ]
+  },
+  {
+    "id": "SVSALE-02-0000000002",
+    "status": "out_for_delivery",
+    "origin": "Antiguo Cuscatlán",
+    "destination": "San Miguel",
+    "estimatedDelivery": "2026-10-06",
+    "events": [
+      { "date": "2026-10-06T07:45:00-06:00", "location": "San Miguel", "description": "Tu paquete va en ruta de entrega." },
+      { "date": "2026-10-05T19:30:00-06:00", "location": "Centro de distribución San Miguel", "description": "El paquete llegó al centro de distribución." },
+      { "date": "2026-10-05T09:15:00-06:00", "location": "Antiguo Cuscatlán", "description": "Recolectamos el paquete en el comercio." }
+    ]
+  },
+  {
+    "id": "SVSALE-03-0000000003",
+    "status": "in_warehouse",
+    "origin": "Sonsonate",
+    "destination": "San Salvador",
+    "estimatedDelivery": "2026-10-08",
+    "events": [
+      { "date": "2026-10-06T11:00:00-06:00", "location": "Bodega Sonsonate", "description": "El paquete está en bodega, listo para despacho." },
+      { "date": "2026-10-06T09:20:00-06:00", "location": "Sonsonate", "description": "Recolectamos el paquete en el comercio." }
+    ]
+  }
+]

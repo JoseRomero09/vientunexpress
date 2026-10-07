@@ -1,0 +1,156 @@
+{
+  "brand": { "name": "21 Express", "slogan": "Tu envío en buenas manos, de punta a punta del país." },
+  "contact": {
+    "phone": "+503 7641-6944",
+    "phoneHref": "tel:+50376416944",
+    "whatsapp": { "number": "50376416944", "message": "¡Hola, 21 Express! Quiero información sobre sus envíos." },
+    "address": "Villas de Suiza, El Salvador",
+    "schedule": "Lunes a viernes de 8:00 a 17:00 · Sábado de 8:00 a 12:00"
+  },
+  "social": [
+    { "id": "facebook", "label": "21 Express en Facebook", "url": "#", "comingSoon": true },
+    { "id": "instagram", "label": "21 Express en Instagram", "url": "#", "comingSoon": true }
+  ],
+  "countries": [
+    { "code": "SV", "name": "El Salvador", "status": "active" },
+    { "code": "GT", "name": "Guatemala", "status": "soon" },
+    { "code": "HN", "name": "Honduras", "status": "soon" }
+  ],
+  "coverageCountries": ["SV"],
+  "comingSoonLabel": "Próximamente",
+  "topbarLinks": [
+    { "label": "¿Por qué 21 Express?", "href": "#", "action": "soon" },
+    { "label": "Tecnología Smart Delivery", "href": "#smart-delivery", "action": "anchor" },
+    { "label": "Contacto", "href": "#contacto", "action": "anchor" }
+  ],
+  "navLinks": [
+    { "label": "Inicio", "href": "#inicio", "action": "anchor" },
+    { "label": "Paquetería local", "href": "#paqueteria-local", "action": "anchor" },
+    { "label": "Cobertura", "href": "#cobertura", "action": "anchor" },
+    { "label": "Internacional", "href": "#internacional", "action": "anchor" }
+  ],
+  "navActions": [
+    { "label": "Proveedores de Transporte", "href": "#", "action": "soon" },
+    { "label": "Afiliarme", "href": "#", "action": "soon" },
+    { "label": "Empleo", "href": "#", "action": "jobs" },
+    { "label": "Mi perfil", "href": "#", "action": "soon" }
+  ],
+  "tracking": {
+    "label": "Ingresa tu número de guía:",
+    "placeholder": "ABCDEF-00-0000000000",
+    "buttonLabel": "Rastrear guía",
+    "errors": {
+      "empty": "Escribe tu número de guía para rastrearla.",
+      "invalid": "El formato no es válido. Ejemplo: ABCDEF-00-0000000000.",
+      "notFound": "No encontramos esa guía. Revisa el número e intenta de nuevo."
+    },
+    "statusLabels": {
+      "delivered": "Entregado",
+      "out_for_delivery": "En ruta de entrega",
+      "in_warehouse": "En bodega"
+    },
+    "modal": {
+      "title": "Estado de tu envío",
+      "origin": "Origen",
+      "destination": "Destino",
+      "eta": "Entrega estimada",
+      "history": "Historial del envío",
+      "close": "Cerrar"
+    }
+  },
+  "hero": {
+    "title": "Entregamos lo que tu negocio promete",
+    "subtitle": "Recolectamos, transportamos y entregamos tus paquetes en todo El Salvador, con seguimiento en cada paso.",
+    "cta": "Afiliarme",
+    "image": { "src": "/images/placeholders/hero.svg", "alt": "Repartidor de 21 Express entregando un paquete" }
+  },
+  "services": {
+    "national": {
+      "id": "paqueteria-local",
+      "title": "Paquetería nacional",
+      "text": "Entregas en los 14 departamentos, con recolección directa en tu negocio.",
+      "cta": "Ver servicios"
+    },
+    "international": {
+      "id": "internacional",
+      "title": "Internacional",
+      "text": "Envía y recibe paquetes del extranjero con acompañamiento de principio a fin.",
+      "cta": "Explorar"
+    }
+  },
+  "smartDelivery": {
+    "badge": "SMART DELIVERY",
+    "tagline": "TECNOLOGÍA LOGÍSTICA",
+    "title": "Sigue cada envío desde tu teléfono",
+    "intro": "Con Smart Delivery, 21 Express te muestra en todo momento dónde va tu paquete y en qué etapa está, sin llamadas ni esperas.",
+    "benefits": [
+      { "icon": "radar", "title": "Tracking en tiempo real", "text": "Consulta la ubicación y el estado de tu envío cuando quieras." },
+      { "icon": "bell", "title": "Avisos de envío y salida", "text": "Te notificamos cuando recogemos tu paquete y cuando sale a entrega." },
+      { "icon": "route", "title": "Control de envíos y ruta diaria", "text": "Revisa todos tus envíos y la ruta del día desde un solo lugar." }
+    ],
+    "stepsTitle": "Cómo rastrear en 2 pasos",
+    "steps": [
+      "Copia el número de guía que te enviamos por mensaje o correo.",
+      "Pégalo en la barra de rastreo y presiona la lupa."
+    ],
+    "cta": "Rastrear envío",
+    "image": { "src": "/images/placeholders/smart-delivery.svg", "alt": "Mano sosteniendo un smartphone con el rastreo de un envío" }
+  },
+  "coverage": {
+    "title": "Llegamos hasta la puerta de tu cliente",
+    "subtitle": "Tú enfócate en vender; de la logística nos encargamos nosotros.",
+    "image": { "src": "/images/placeholders/coverage.svg", "alt": "Repartidor cargando cajas junto a una furgoneta de reparto" }
+  },
+  "branchesSection": {
+    "title": "Visita tu sucursal más cercana",
+    "searchLabel": "Buscar sucursal",
+    "searchPlaceholder": "Nombre, municipio o departamento",
+    "empty": "No hay sucursales que coincidan con tu búsqueda.",
+    "clear": "Limpiar búsqueda",
+    "mapLoading": "Cargando mapa…"
+  },
+  "jobs": {
+    "title": "Trabaja con nosotros",
+    "intro": "Déjanos tus datos y tu CV. Si hay una plaza para ti en tu zona, te contactamos.",
+    "positions": ["Piloto", "Ayudante de ruta", "Auxiliar de bodega", "Otros"],
+    "zones": ["Occidente", "Paracentral", "San Salvador", "Oriente"],
+    "labels": {
+      "fullName": "Nombre completo",
+      "phone1": "Teléfono 1",
+      "phone2": "Teléfono 2",
+      "position": "Plaza",
+      "zone": "Zona",
+      "cv": "Adjunta tu CV (PDF, DOC o DOCX, máx. 5 MB)",
+      "submit": "Enviar postulación",
+      "optional": "(opcional)"
+    },
+    "errors": {
+      "fullName": "Escribe tu nombre y al menos un apellido.",
+      "phone": "Escribe un teléfono de 8 dígitos, por ejemplo 7641-6944.",
+      "required": "Este campo es obligatorio.",
+      "cvType": "El CV debe ser PDF, DOC o DOCX.",
+      "cvSize": "El CV no puede pesar más de 5 MB."
+    },
+    "success": {
+      "title": "¡Gracias por postularte!",
+      "text": "Recibimos tus datos. Si tu perfil encaja con una plaza disponible, te llamaremos.",
+      "close": "Entendido"
+    }
+  },
+  "footer": {
+    "companyTitle": "Compañía",
+    "companyLinks": [
+      { "label": "¿Por qué 21 Express?", "href": "#", "action": "soon" },
+      { "label": "Smart Delivery", "href": "#smart-delivery", "action": "anchor" },
+      { "label": "Sucursales", "href": "#sucursales", "action": "anchor" },
+      { "label": "Trabaja con nosotros", "href": "#", "action": "soon" }
+    ],
+    "contactTitle": "Contáctanos",
+    "coverageTitle": "Cobertura",
+    "legalLinks": [
+      { "label": "Política de privacidad", "href": "#", "action": "soon" },
+      { "label": "Términos y condiciones", "href": "#", "action": "soon" }
+    ],
+    "copyright": "© 2026 21 Express. Todos los derechos reservados."
+  }
+}
